@@ -2,6 +2,7 @@ import listingHelper from '../api/listingHelper';
 import {
   SET_JOB_LIST,
   SET_JOB_TOTAL_COUNT,
+  SET_JOB_OFFSET,
 } from './actions';
 
 export const initialState = {
@@ -17,6 +18,7 @@ export function fetchJobList() {
       const json = await listingHelper.getJobList(limit, offset);
       dispatch({ type: SET_JOB_LIST, payload: json.jdList });
       dispatch({ type: SET_JOB_TOTAL_COUNT, payload: json.totalCount });
+      dispatch({ type: SET_JOB_OFFSET, payload: offset + limit });
     } catch (error) {
       console.error(error);
     }
@@ -36,6 +38,11 @@ const listReducer = (state = initialState, action) => {
       return {
         ...state,
         totalCount: action.payload,
+      };
+    case SET_JOB_OFFSET:
+      return {
+        ...state,
+        offset: action.payload,
       };
     default:
       return state;
