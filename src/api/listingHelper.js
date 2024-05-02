@@ -5,4 +5,6 @@ function getJobList(limit = 10, offset = 0) {
     return ApiUtils.request("POST", JOB_LISTING_API, { limit, offset })
 }
 
-export default getJobList;
+const listingHelper = { getJobList };
+
+export default listingHelper;
