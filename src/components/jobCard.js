@@ -7,11 +7,11 @@ const MAX_DESCRIPTION_LENGTH = 150;
 function JobCard({ index, job }) {
 const { 
   id = '', 
-  jobTitle = '',
-  apply_link = '', 
-  description = '', 
-  maxSalary = 0, 
-  minSalary = 0, 
+  jobCompany = 'Apple',
+  jdLink = '', 
+  jobDetailsFromCompany = '', 
+  maxJdSalary = 0, 
+  minJdSalary = 0, 
   salaryCurrencyCode = '', 
   location = '', 
   minExp = 0, 
@@ -34,29 +34,29 @@ const {
       backgroundColor: '#fff'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Image src={`https://weekday.works/images/${id}.png`} alt={jobRole} sx={{ width: '50px', height: 'auto', marginRight: '20px' }} />
+        <Image sx={{ width: '50px', height: 'auto', marginRight: '20px' }} />
         <Box>
-          <Typography variant="h6" color="text.secondary">{jobTitle}</Typography>
+          <Typography variant="h6" color="text.secondary">{jobCompany}</Typography>
           <Typography variant="h6" color="text.secondary">{jobRole}</Typography>
           <Typography variant="subtitle1" color="text.secondary">{location}</Typography>
         </Box>
       </Box>
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>
-        Estimated Salary: {salaryCurrencyCode}{minSalary ? `${minSalary} - ` : ''}{maxSalary}
+        Estimated Salary: {salaryCurrencyCode}{minJdSalary ? `${minJdSalary} - ` : ''}{maxJdSalary}
       </Typography>
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>About Company:</Typography>
       <Typography variant="body2" sx={{ marginBottom: '10px' }}>
-        {description.substring(0, MAX_DESCRIPTION_LENGTH)}...
+        {jobDetailsFromCompany.substring(0, MAX_DESCRIPTION_LENGTH)}...
       </Typography>
       <Typography onClick={handleExpandClick} aria-expanded={expanded} sx={{ cursor: 'pointer', marginBottom: '10px' }}>
         Show More
       </Typography>
 
       <Dialog open={expanded} onClose={handleExpandClick}>
-        <DialogTitle>Job Description</DialogTitle>
+        <DialogTitle>Job jobDetailsFromCompany</DialogTitle>
         <DialogContent>
           <Typography variant="body2">
-            {description}
+            {jobDetailsFromCompany}
           </Typography>
         </DialogContent>
       </Dialog>
@@ -65,7 +65,7 @@ const {
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginBottom: '10px' }}>
         {minExp ? `${minExp} - ` : ''}{maxExp} years
       </Typography>
-      <Button variant="contained" size="small" href={apply_link} target="_blank" rel="noopener noreferrer" sx={{ backgroundColor: 'rgb(85, 239, 196)', '&:hover': { backgroundColor: 'rgb(75, 215, 174)' }, width: '90%', display: 'block', margin: '0 auto' }}>Apply</Button>
+      <Button variant="contained" size="small" href={jdLink} target="_blank" rel="noopener noreferrer" sx={{ backgroundColor: 'rgb(85, 239, 196)', '&:hover': { backgroundColor: 'rgb(75, 215, 174)' }, width: '90%', display: 'block', margin: '0 auto' }}>Apply</Button>
       </Container>
   );
 }
