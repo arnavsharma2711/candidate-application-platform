@@ -1,4 +1,5 @@
 import listingHelper from '../api/listingHelper';
+import { COMPANY_NAMES_IMAGES } from '../static/dummyCompanyData';
 import {
   SET_JOB_LIST,
   SET_JOB_TOTAL_COUNT,
@@ -16,7 +17,11 @@ export function fetchJobList() {
     const { limit, offset } = getState().listStore;
     try {
       const json = await listingHelper.getJobList(limit, offset);
-      dispatch({ type: SET_JOB_LIST, payload: json.jdList });
+      const updatedJobList = json.jdList.map(job => {
+        const randomCompany = COMPANY_NAMES_IMAGES[Math.floor(Math.random() * COMPANY_NAMES_IMAGES.length)];
+        return { ...job, jobCompany: randomCompany.name, companyImage: randomCompany.image };
+      });
+      dispatch({ type: SET_JOB_LIST, payload: updatedJobList });
       dispatch({ type: SET_JOB_TOTAL_COUNT, payload: json.totalCount });
       dispatch({ type: SET_JOB_OFFSET, payload: offset + limit });
     } catch (error) {

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography, Container, Button, Dialog, DialogTitle, DialogContent, Box } from '@mui/material';
-import { Image } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { LocationOn, Work } from '@mui/icons-material';
 
 const MAX_DESCRIPTION_LENGTH = 150;
 
 function JobCard({ index, job }) {
 const { 
-  id = '', 
-  jobCompany = 'Apple',
+  jdUid = '', 
+  jobCompany = '',
+  companyImage= '',
   jdLink = '', 
   jobDetailsFromCompany = '', 
   maxJdSalary = 0, 
@@ -34,11 +36,15 @@ const {
       backgroundColor: '#fff'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Image sx={{ width: '50px', height: 'auto', marginRight: '20px' }} />
+        <img src={companyImage} alt={jobCompany} style={{ width: '50px', height: 'auto', marginRight: '20px' }} />
         <Box>
           <Typography variant="h6" color="text.secondary">{jobCompany}</Typography>
-          <Typography variant="h6" color="text.secondary">{jobRole}</Typography>
-          <Typography variant="subtitle1" color="text.secondary">{location}</Typography>
+          <Typography variant="h6" color="text.secondary" style={{ textTransform: 'capitalize' }}>
+            <Work /> {jobRole} Role
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" style={{ textTransform: 'capitalize' }}>
+            <LocationOn /> {location}
+          </Typography>
         </Box>
       </Box>
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>
@@ -65,8 +71,12 @@ const {
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginBottom: '10px' }}>
         {minExp ? `${minExp} - ` : ''}{maxExp} years
       </Typography>
-      <Button variant="contained" size="small" href={jdLink} target="_blank" rel="noopener noreferrer" sx={{ backgroundColor: 'rgb(85, 239, 196)', '&:hover': { backgroundColor: 'rgb(75, 215, 174)' }, width: '90%', display: 'block', margin: '0 auto' }}>Apply</Button>
-      </Container>
+      <Link to={`/job/${jdUid}`} style={{ textDecoration: 'none' }}>
+        <Button variant="contained" size="small" sx={{ backgroundColor: 'rgb(85, 239, 196)', '&:hover': { backgroundColor: 'rgb(75, 215, 174)' }, width: '90%', display: 'block', margin: '0 auto' }}>
+          Apply
+        </Button>
+      </Link>
+    </Container>
   );
 }
 
