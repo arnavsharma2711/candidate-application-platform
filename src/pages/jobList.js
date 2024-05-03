@@ -17,14 +17,15 @@ function JobList() {
     shallowEqual,
   );
 
-const [filter, setFilter] = useState({
-  location: [],
-  role: [],
-  jobCompany: [],
-  isRemote: false,
-  minExperience: 0,
-  minSalary: 0,
-});
+  const [filter, setFilter] = useState({
+    location: [],
+    role: [],
+    jobCompany: [],
+    isRemote: false,
+    minExperience: 0,
+    minSalary: 0,
+  });
+
   const [filterOptions, setFilterOptions] = useState({ location: [], role: [], jobCompany: [] });
 
   useEffect(() => {
@@ -73,8 +74,7 @@ const [filter, setFilter] = useState({
         (Total jobs: {totalCount})
       </Typography>
       <Box>
-        
-        <Grid container spacing={3}>
+        <Grid container spacing={3} wrap="wrap">
           {filteredJobList.map((job, index) => (
             <Grid item xs={12} sm={6} md={4} key={job.id}>
               <JobCard job={job} />

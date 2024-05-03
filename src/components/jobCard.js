@@ -1,25 +1,25 @@
 import React from 'react';
 import { Typography, Container, Button, Dialog, DialogTitle, DialogContent, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { LocationOn, Work } from '@mui/icons-material';
-
-const MAX_DESCRIPTION_LENGTH = 150;
+import { LocationOn, Work } from '@mui/icons-material'
+import { MAX_DESCRIPTION_LENGTH } from '../utils/constants';
 
 function JobCard({ index, job }) {
-const { 
-  jdUid = '', 
-  jobCompany = '',
-  companyImage= '',
-  jdLink = '', 
-  jobDetailsFromCompany = '', 
-  maxJdSalary = 0, 
-  minJdSalary = 0, 
-  salaryCurrencyCode = '', 
-  location = '', 
-  minExp = 0, 
-  maxExp = 0, 
-  jobRole = '' 
-} = job;
+  const { 
+    jdUid = '', 
+    jobCompany = '',
+    companyImage= '',
+    jdLink = '', 
+    jobDetailsFromCompany = '', 
+    maxJdSalary = 0, 
+    minJdSalary = 0, 
+    salaryCurrencyCode = '', 
+    location = '', 
+    minExp = 0, 
+    maxExp = 0, 
+    jobRole = '' 
+  } = job;
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -28,12 +28,12 @@ const {
 
   return (
     <Container sx={{ 
-      maxWidth: 345,
+      maxWidth: '100%',
       borderRadius: '20px', 
       boxShadow: '0 3px 10px 3px rgba(0, 0, 0, .1)',
       padding: '10px',
-      margin: '20px',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      marginTop: '20px',
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <img src={companyImage} alt={jobCompany} style={{ width: '50px', height: 'auto', marginRight: '20px' }} />

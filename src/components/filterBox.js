@@ -18,51 +18,71 @@ function FilterBox({ filter, setFilter, filterOptions }) {
   };
 
   return (
-<Grid container justifyContent="center">
+    <Grid container justifyContent="center">
       <Box sx={{ width: '80%', mt: 3, mb: 3 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Filter Options
-      </Typography>
+        <Typography variant="h4" align="center" gutterBottom>
+          Filter Options
+        </Typography>
         <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
-        <InputLabel id="company-label">Company Name</InputLabel>
-        <Select
-          labelId="company-label"
-          name="jobCompany"
-          multiple
-          value={filter.jobCompany}
-          onChange={handleFilterChange}
-          renderValue={(selected) => selected.join(', ')}
-        >
-          {filterOptions.jobCompany.map((loc, index) => (
-            <MenuItem key={index} value={loc}>
-              <Checkbox checked={filter.jobCompany.indexOf(loc) > -1} />
-              <ListItemText primary={loc} />
-            </MenuItem>
-          ))}
-        </Select>
-        </FormControl>
+              <InputLabel id="company-label">Company Name</InputLabel>
+              <Select
+                labelId="company-label"
+                name="jobCompany"
+                multiple
+                value={filter.jobCompany}
+                onChange={handleFilterChange}
+                renderValue={(selected) => selected.join(', ')}
+              >
+                {filterOptions.jobCompany.map((loc, index) => (
+                  <MenuItem key={index} value={loc}>
+                    <Checkbox checked={filter.jobCompany.indexOf(loc) > -1} />
+                    <ListItemText primary={loc} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
-        <InputLabel id="location-label">Location</InputLabel>
-        <Select
-          labelId="location-label"
-          name="location"
-          multiple
-          value={filter.location}
-          onChange={handleFilterChange}
-          renderValue={(selected) => selected.join(', ')}
-        >
-          {filterOptions.location.map((loc, index) => (
-            <MenuItem key={index} value={loc}>
-              <Checkbox checked={filter.location.indexOf(loc) > -1} />
-              <ListItemText primary={loc} />
-            </MenuItem>
-          ))}
-        </Select>
-        </FormControl>
+              <InputLabel id="location-label">Location</InputLabel>
+              <Select
+                labelId="location-label"
+                name="location"
+                multiple
+                value={filter.location}
+                onChange={handleFilterChange}
+                renderValue={(selected) => selected.join(', ')}
+              >
+                {filterOptions.location.map((loc, index) => (
+                  <MenuItem key={index} value={loc}>
+                    <Checkbox checked={filter.location.indexOf(loc) > -1} />
+                    <ListItemText primary={loc} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl fullWidth>
+              <InputLabel id="role-label">Role</InputLabel>
+              <Select
+                labelId="role-label"
+                name="role"
+                multiple
+                value={filter.role}
+                onChange={handleFilterChange}
+                renderValue={(selected) => selected.join(', ')}
+              >
+                {filterOptions.role.map((loc, index) => (
+                  <MenuItem key={index} value={loc}>
+                    <Checkbox checked={filter.role.indexOf(loc) > -1} />
+                    <ListItemText primary={loc} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -100,7 +120,6 @@ function FilterBox({ filter, setFilter, filterOptions }) {
             />
           </Grid>
         </Grid>
-
       </Box>
     </Grid>
   );
