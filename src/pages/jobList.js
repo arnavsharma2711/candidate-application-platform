@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import JobCard from '../components/jobCard';
 import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
-import FilterBox from '../components/filterBox';
 import { fetchJobList } from '../store/listing';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import FilterBox from '../components/filterBox';
+import JobCard from '../components/jobCard';
+
 
 function JobList() {
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ function JobList() {
           ))}
         </Grid>
       </Box>
-      <div ref={loader} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div ref={loader} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh' }}>
         <CircularProgress />
       </div>
     </Container>

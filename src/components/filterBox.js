@@ -24,7 +24,7 @@ function FilterBox({ filter, setFilter, filterOptions }) {
           Filter Options
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <FormControl fullWidth>
               <InputLabel id="company-label">Company Name</InputLabel>
               <Select
@@ -34,17 +34,18 @@ function FilterBox({ filter, setFilter, filterOptions }) {
                 value={filter.jobCompany}
                 onChange={handleFilterChange}
                 renderValue={(selected) => selected.join(', ')}
+                style={{ textTransform: 'capitalize' }}
               >
                 {filterOptions.jobCompany.map((loc, index) => (
                   <MenuItem key={index} value={loc}>
                     <Checkbox checked={filter.jobCompany.indexOf(loc) > -1} />
-                    <ListItemText primary={loc} />
+                    <ListItemText primary={loc} style={{ textTransform: 'capitalize' }} />
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <FormControl fullWidth>
               <InputLabel id="location-label">Location</InputLabel>
               <Select
@@ -54,17 +55,18 @@ function FilterBox({ filter, setFilter, filterOptions }) {
                 value={filter.location}
                 onChange={handleFilterChange}
                 renderValue={(selected) => selected.join(', ')}
+                style={{ textTransform: 'capitalize' }}
               >
                 {filterOptions.location.map((loc, index) => (
                   <MenuItem key={index} value={loc}>
                     <Checkbox checked={filter.location.indexOf(loc) > -1} />
-                    <ListItemText primary={loc} />
+                    <ListItemText primary={loc} style={{ textTransform: 'capitalize' }} />
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <FormControl fullWidth>
               <InputLabel id="role-label">Role</InputLabel>
               <Select
@@ -74,17 +76,18 @@ function FilterBox({ filter, setFilter, filterOptions }) {
                 value={filter.role}
                 onChange={handleFilterChange}
                 renderValue={(selected) => selected.join(', ')}
+                style={{ textTransform: 'capitalize' }}
               >
                 {filterOptions.role.map((loc, index) => (
                   <MenuItem key={index} value={loc}>
                     <Checkbox checked={filter.role.indexOf(loc) > -1} />
-                    <ListItemText primary={loc} />
+                    <ListItemText primary={loc} style={{ textTransform: 'capitalize' }} />
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <TextField
               name="minExperience"
               value={filter.minExperience}
@@ -95,7 +98,7 @@ function FilterBox({ filter, setFilter, filterOptions }) {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <TextField
               name="minSalary"
               value={filter.minSalary}
@@ -106,7 +109,7 @@ function FilterBox({ filter, setFilter, filterOptions }) {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <FormControlLabel
               control={
                 <Switch
