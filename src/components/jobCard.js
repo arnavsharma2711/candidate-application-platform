@@ -48,7 +48,7 @@ const {
         </Box>
       </Box>
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>
-        Estimated Salary: {salaryCurrencyCode}{minJdSalary ? `${minJdSalary} - ` : ''}{maxJdSalary}
+        Estimated Salary: {salaryCurrencyCode === 'USD' ? '$' : salaryCurrencyCode} {minJdSalary ? `${minJdSalary} - ` : ''}{maxJdSalary}
       </Typography>
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>About Company:</Typography>
       <Typography variant="body2" sx={{ marginBottom: '10px' }}>
@@ -69,7 +69,7 @@ const {
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginTop: '10px' }}>Experience</Typography>
 
       <Typography variant="subtitle2" color="text.secondary" sx={{ marginBottom: '10px' }}>
-        {minExp ? `${minExp} - ` : ''}{maxExp} years
+        {minExp === maxExp ? `${minExp} years` : `${minExp ? `${minExp} - ` : ''}${maxExp} years`}
       </Typography>
       <Link to={`/job/${jdUid}`} style={{ textDecoration: 'none' }}>
         <Button variant="contained" size="small" sx={{ backgroundColor: 'rgb(85, 239, 196)', '&:hover': { backgroundColor: 'rgb(75, 215, 174)' }, width: '90%', display: 'block', margin: '0 auto' }}>

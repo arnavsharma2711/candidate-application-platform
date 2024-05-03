@@ -24,6 +24,26 @@ function FilterBox({ filter, setFilter, filterOptions }) {
         Filter Options
       </Typography>
         <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+            <FormControl fullWidth>
+        <InputLabel id="company-label">Company Name</InputLabel>
+        <Select
+          labelId="company-label"
+          name="jobCompany"
+          multiple
+          value={filter.jobCompany}
+          onChange={handleFilterChange}
+          renderValue={(selected) => selected.join(', ')}
+        >
+          {filterOptions.jobCompany.map((loc, index) => (
+            <MenuItem key={index} value={loc}>
+              <Checkbox checked={filter.jobCompany.indexOf(loc) > -1} />
+              <ListItemText primary={loc} />
+            </MenuItem>
+          ))}
+        </Select>
+        </FormControl>
+          </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
         <InputLabel id="location-label">Location</InputLabel>

@@ -20,23 +20,25 @@ function JobList() {
 const [filter, setFilter] = useState({
   location: [],
   role: [],
+  jobCompany: [],
   isRemote: false,
   minExperience: 0,
   minSalary: 0,
 });
-  const [filterOptions, setFilterOptions] = useState({ location: [], role: []});
+  const [filterOptions, setFilterOptions] = useState({ location: [], role: [], jobCompany: [] });
 
   useEffect(() => {
     setFilterOptions({
       location: Array.from(new Set(jobList.map(job => job.location))).filter(loc => loc !== 'remote'),
       role: Array.from(new Set(jobList.map(job => job.jobRole))),
-      isRemote: false,
+      jobCompany: Array.from(new Set(jobList.map(job => job.jobCompany))),
     });
   }, [jobList]);
 
   const filteredJobList = jobList.filter(job => 
     (filter.isRemote ? job.location === 'remote' : (filter.location.length === 0 || filter.location.includes(job.location))) &&
     (filter.role.length === 0 || filter.role.includes(job.jobRole)) &&
+    (filter.jobCompany.length === 0 || filter.jobCompany.includes(job.jobCompany)) &&
     (filter.minExperience === 0 || job.minExp >= filter.minExperience) &&
     (filter.minSalary === 0 || job.minJdSalary >= filter.minSalary)
   );
