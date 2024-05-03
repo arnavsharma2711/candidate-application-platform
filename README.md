@@ -7,12 +7,17 @@ To set up the project, use npm install to install dependencies and npm start to 
 ## File Structure and its descriptions
 The project is structured as follows:
 
-- The api folder contains a listingHelper file which consists of a dummy API used to create the project. In the future, this folder will contain all the APIs needed for the project's scope.
-- The components folder contains reusable components used throughout the application.
-- The pages folder contains the 'jobList' page which uses the components to create a Job Listing Page.
-- The static folder contains images used in the project as well as the dummy data needed for the project.
-- The store folder contains Redux toolkit files like reducers and actions.
-- The utils folder contains commonly used code like ApiUtil and Constants to implement the DRY (Don't Repeat Yourself) approach throughout the project.
+- The `api` folder contains a `listingHelper` file which consists of a dummy API used to create the project. In the future, this folder will contain all the APIs needed for the project's scope.
+- The `components` folder contains reusable components used throughout the application.
+- The `pages` folder contains the `jobList` page which uses the components to create a Job Listing Page.
+- The `static` folder contains images used in the project as well as the dummy data needed for the project.
+- The `store` folder contains Redux toolkit files like `reducers` and `actions`.
+- The `utils` folder contains commonly used code like `ApiUtil` and `Constants` to implement the DRY (Don't Repeat Yourself) approach throughout the project.
+
+# Tech Stack
+- React
+- Redux
+- Material UI
 
 ## Screenshot
 ![With Filters](screenshots/with_filters.png)
